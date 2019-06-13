@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+</head>
+<body>
+<p><b>Welcome to the weather finder!</b></p>
+{% if info %}
+<p>The city name is {{ info['name'] }}</p>
+<p> The temperature is {{ info['main']['temp'] }}</p>
+{% else %}
+<form action="/weather" method="POST">
+	<input type="text" name="city" placeholder="enter city here...">
+	<p>Kelvin</p><input type="radio" name="units" value="kelvin"><br>
+
+	<p>Imperial</p><input type="radio" name="units" value="imperial"><br>
+
+	<p>Metric</p><input type="radio" name="units" value="metric"><br>
+	<input type="submit" value="submit">
+</form>
+{% endif %}
+</body>
+</html>
